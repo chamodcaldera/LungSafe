@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload and Save Segmented Image</title>
+</head>
+<body>
+    {% if filename %}
+    <h1>Segmented Image</h1>
+    <img src="{{ url_for('static', filename=filename) }}" alt="Segmented Image">
+    <br>
+    <a href="{{ url_for('static', filename=filename) }}" download="segmented_image.png">Save Segmented Image</a>
+    {% else %}
+    <h1>Upload X-ray Image</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+    {% endif %}
+</body>
+</html>
